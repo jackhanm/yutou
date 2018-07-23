@@ -1,0 +1,54 @@
+PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - CYLTabBarController (1.17.11)
+  - DZNEmptyDataSet (1.8.1)
+  - Hyphenate (3.4.2)
+  - Realm (3.7.4):
+    - Realm/Headers (= 3.7.4)
+  - Realm/Headers (3.7.4)
+  - VTMagic (1.2.4):
+    - VTMagic/Core (= 1.2.4)
+  - VTMagic/Core (1.2.4)
+
+DEPENDENCIES:
+  - AFNetworking (~> 3.2.0)
+  - CYLTabBarController (~> 1.17.11)
+  - DZNEmptyDataSet
+  - Hyphenate
+  - Realm (~> 3.7.4)
+  - VTMagic (~> 1.2.4)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - CYLTabBarController
+    - DZNEmptyDataSet
+    - Hyphenate
+    - Realm
+    - VTMagic
+
+SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  CYLTabBarController: b6e0574c2f5592edfbfc71a1b2be8dc0374cf11a
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  Hyphenate: 25e6dc90d5171a5bf77a92fa11a7638db85575d0
+  Realm: a469bb59e33f9926102ccaea4349822c53b9117e
+  VTMagic: b49e5f456dbcbfd9a3588ba92417233a105bc193
+
+PODFILE CHECKSUM: 10b58f61638d0cf6a5e3623f1654c003079f6a01
+
+COCOAPODS: 1.5.3
