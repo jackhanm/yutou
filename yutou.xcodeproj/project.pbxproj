@@ -167,6 +167,9 @@
 		667C9DF320FC34A50003E2C2 /* JKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 667C9DF220FC34A50003E2C2 /* JKViewController.m */; };
 		667C9DF620FC34CA0003E2C2 /* JKmine.m in Sources */ = {isa = PBXBuildFile; fileRef = 667C9DF520FC34CA0003E2C2 /* JKmine.m */; };
 		667C9DF920FC34E80003E2C2 /* JKfind.m in Sources */ = {isa = PBXBuildFile; fileRef = 667C9DF820FC34E80003E2C2 /* JKfind.m */; };
+		668DB7D12107119D00EB96F9 /* JKtableviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 668DB7D02107119D00EB96F9 /* JKtableviewController.m */; };
+		668DB7D42107121600EB96F9 /* JKRecomandcell.m in Sources */ = {isa = PBXBuildFile; fileRef = 668DB7D32107121600EB96F9 /* JKRecomandcell.m */; };
+		668DB7D72107159E00EB96F9 /* JKRecomandModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 668DB7D62107159E00EB96F9 /* JKRecomandModel.m */; };
 		6695A40D20EDF20100ACC7A2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6695A40C20EDF20100ACC7A2 /* AppDelegate.m */; };
 		6695A41320EDF20100ACC7A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6695A41120EDF20100ACC7A2 /* Main.storyboard */; };
 		6695A41520EDF20300ACC7A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6695A41420EDF20300ACC7A2 /* Assets.xcassets */; };
@@ -534,6 +537,12 @@
 		667C9DF520FC34CA0003E2C2 /* JKmine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKmine.m; sourceTree = "<group>"; };
 		667C9DF720FC34E80003E2C2 /* JKfind.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKfind.h; sourceTree = "<group>"; };
 		667C9DF820FC34E80003E2C2 /* JKfind.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKfind.m; sourceTree = "<group>"; };
+		668DB7CF2107119D00EB96F9 /* JKtableviewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKtableviewController.h; sourceTree = "<group>"; };
+		668DB7D02107119D00EB96F9 /* JKtableviewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKtableviewController.m; sourceTree = "<group>"; };
+		668DB7D22107121600EB96F9 /* JKRecomandcell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRecomandcell.h; sourceTree = "<group>"; };
+		668DB7D32107121600EB96F9 /* JKRecomandcell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRecomandcell.m; sourceTree = "<group>"; };
+		668DB7D52107159E00EB96F9 /* JKRecomandModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRecomandModel.h; sourceTree = "<group>"; };
+		668DB7D62107159E00EB96F9 /* JKRecomandModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRecomandModel.m; sourceTree = "<group>"; };
 		6695A40820EDF20100ACC7A2 /* yutou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yutou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6695A40B20EDF20100ACC7A2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6695A40C20EDF20100ACC7A2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -1342,6 +1351,8 @@
 		666851D52100312E00A19249 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				668DB7D22107121600EB96F9 /* JKRecomandcell.h */,
+				668DB7D32107121600EB96F9 /* JKRecomandcell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1351,6 +1362,8 @@
 			children = (
 				667C9DF720FC34E80003E2C2 /* JKfind.h */,
 				667C9DF820FC34E80003E2C2 /* JKfind.m */,
+				668DB7CF2107119D00EB96F9 /* JKtableviewController.h */,
+				668DB7D02107119D00EB96F9 /* JKtableviewController.m */,
 			);
 			path = contro;
 			sourceTree = "<group>";
@@ -1358,6 +1371,8 @@
 		666851D72100312E00A19249 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				668DB7D52107159E00EB96F9 /* JKRecomandModel.h */,
+				668DB7D62107159E00EB96F9 /* JKRecomandModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1919,6 +1934,7 @@
 				665C12BF2100412E007B4B9A /* EaseConvertToCommonEmoticonsHelper.m in Sources */,
 				665C13052100412E007B4B9A /* UIImage+MultiFormat.m in Sources */,
 				665C12E02100412E007B4B9A /* EMCDDeviceManager+Remind.m in Sources */,
+				668DB7D12107119D00EB96F9 /* JKtableviewController.m in Sources */,
 				665C12F02100412E007B4B9A /* DACircularProgressView.m in Sources */,
 				667C9DF920FC34E80003E2C2 /* JKfind.m in Sources */,
 				665C13102100412E007B4B9A /* MBProgressHUD+Add.m in Sources */,
@@ -1926,6 +1942,7 @@
 				665C12FC2100412E007B4B9A /* PSTCollectionViewLayout.m in Sources */,
 				665C12B92100412E007B4B9A /* NSDate+Category.m in Sources */,
 				665C12D22100412E007B4B9A /* MJRefreshAutoNormalFooter.m in Sources */,
+				668DB7D72107159E00EB96F9 /* JKRecomandModel.m in Sources */,
 				665C131B2100412E007B4B9A /* EaseMessageCell.m in Sources */,
 				665C13122100412E007B4B9A /* EaseConversationListViewController.m in Sources */,
 				6655BE232100668500FCCB4E /* NSMutableArray+Category.m in Sources */,
@@ -1961,6 +1978,7 @@
 				665C135C21004205007B4B9A /* ContactListViewController.m in Sources */,
 				665C12D52100412E007B4B9A /* MJRefreshGifHeader.m in Sources */,
 				667C9DF320FC34A50003E2C2 /* JKViewController.m in Sources */,
+				668DB7D42107121600EB96F9 /* JKRecomandcell.m in Sources */,
 				665C12E72100412E007B4B9A /* MWPhotoBrowser.m in Sources */,
 				665C12C22100412E007B4B9A /* EaseEmotionEscape.m in Sources */,
 				665C13022100412E007B4B9A /* UIImageView+HighlightedWebCache.m in Sources */,

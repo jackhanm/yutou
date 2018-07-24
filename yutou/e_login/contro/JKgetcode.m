@@ -29,7 +29,7 @@
 }
 -(void)createview
 {
-    _backimage = [[UIImageView alloc]initWithFrame:CGRectMake((37)/widthreal, (74)/heightreal, 37/widthreal, 30/heightreal)];
+    _backimage = [[UIImageView alloc]initWithFrame:CGRectMake((37)/widthreal, (74)/heightreal, 19, 15)];
     _backimage.image = kLGetImage(@"返回上一页面");
     _backimage.userInteractionEnabled =YES;
     
@@ -38,12 +38,12 @@
     _subtitlelabel.textColor = UIColorFromRGB(0x333333);
     _subtitlelabel.font = [UIFont systemFontOfSize:32.0];
     
-    _noticelable =[[UILabel alloc]initWithFrame:CGRectMake(63/widthreal, 361/heightreal, (261)/widthreal, 45/heightreal)];
+    _noticelable =[[UILabel alloc]initWithFrame:CGRectMake(63/widthreal, 361/heightreal, (275)/widthreal, 45/heightreal)];
     _noticelable.text = @"验证码已发送至";
     _noticelable.textColor = UIColorFromRGB(0x999999);
     _noticelable.font = [UIFont systemFontOfSize:16.0];
     
-    _phonelabel =[[UILabel alloc]initWithFrame:CGRectMake(297/widthreal, 366/heightreal, (212)/widthreal, 36/heightreal)];
+    _phonelabel =[[UILabel alloc]initWithFrame:CGRectMake(_noticelable.frame.size.width+_noticelable.frame.origin.x, 366/heightreal, (242)/widthreal, 36/heightreal)];
     _phonelabel.text = [NSString getSecrectStringWithPhoneNumber:@"13716959617"];
     _phonelabel.textColor = UIColorFromRGB(0x666666);
     _phonelabel.font = [UIFont systemFontOfSize:16.0];
@@ -70,13 +70,16 @@
     
     
     
-    
+    UIView *view =[[UIView alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
+    [view addSubview:_backimage];
     
  
-    [self.view addSubview:_backimage];
+    [self.view addSubview:view];
+    
+    
     [self.view addSubview:_subtitlelabel];
     UITapGestureRecognizer *backtap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(backtapAct)];
-    [_backimage addGestureRecognizer:backtap];
+    [view addGestureRecognizer:backtap];
     [self.view addSubview:_phonelabel];
     [self.view addSubview:_noticelable];
      [self.view addSubview:_unitField];
@@ -84,6 +87,7 @@
 }
 -(void)nextbtAct{
     JKgetuserInfo *vc= [[JKgetuserInfo alloc]init];
+    vc.Regist = _goRegist;
     [self.navigationController pushViewController:vc animated:YES];
 }
 // 检测数据变化

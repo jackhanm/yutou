@@ -10,5 +10,5 @@
 
 @interface JKgetcode : JKViewController
 @property(nonatomic, retain)NSString *phoneNum;
-
+@property (nonatomic,copy) void(^goRegist)(void);
 @end

@@ -10,6 +10,9 @@
 #import "JKlogin.h"
 #import "JKgetcode.h"
 @interface JKenter ()<UITextFieldDelegate>
+{
+    void(^_myBlock)(void);
+}
 @property(nonatomic, retain)UIImageView *headimage;
 @property(nonatomic, retain)UILabel *titlelabel;
 @property(nonatomic, retain)UILabel *subtitlelabel;
@@ -59,6 +62,10 @@
     [self.view addGestureRecognizer:self.rightSwipeGestureRecognizer];
     // Do any additional setup after loading the view.
 }
+-(void)loginblock:(void (^)(void))block
+{
+     _myBlock = block;
+}
 - (void)handleSwipes:(UISwipeGestureRecognizer *)sender
 
 {
@@ -97,7 +104,7 @@
     _headimage.image = kLGetImage(@"Group");
     
     
-    _titlelabel =[[UILabel alloc]initWithFrame:CGRectMake(65/widthreal, 407/heightreal, 529/widthreal, 73/heightreal)];
+    _titlelabel =[[UILabel alloc]initWithFrame:CGRectMake(65/widthreal, 407/heightreal, WIDGHTSCALE -65/widthreal*2 , 73/heightreal)];
     _titlelabel.textColor = [UIColor whiteColor];
     NSMutableAttributedString *hintString=[[NSMutableAttributedString alloc]initWithString:@"欢迎来到鱼头社交"];
     //获取要调整颜色的文字位置,调整颜色
@@ -115,7 +122,7 @@
     
     JKLog(@"%f",HEIGHTSCALE);
     _loginbt = [UIButton buttonWithType:UIButtonTypeCustom];
-    _loginbt.frame = CGRectMake(65/widthreal, (HEIGHTSCALE - 341-98)/heightreal, 620/widthreal, 98/heightreal);
+    _loginbt.frame = CGRectMake(65/widthreal,_subtitlelabel.frame.size.height+_subtitlelabel.frame.origin.y + 358/heightreal, 620/widthreal, 98/heightreal);
     _loginbt.backgroundColor = UIColorFromRGB(themeColor);
     _loginbt.layer.masksToBounds = YES;
     _loginbt.layer.cornerRadius = _loginbt.frame.size.height/2;
@@ -125,7 +132,7 @@
     
     
     _registbt = [UIButton buttonWithType:UIButtonTypeCustom];
-    _registbt.frame = CGRectMake(65/widthreal, (HEIGHTSCALE - 214-98)/heightreal, 620/widthreal, 98/heightreal);
+    _registbt.frame = CGRectMake(65/widthreal, self.loginbt.frame.origin.y+self.loginbt.frame.size.height+29/heightreal, 620/widthreal, 98/heightreal);
     [_registbt setTitle:@"注册账号" forState:UIControlStateNormal];
     _registbt.layer.masksToBounds = YES;
     _registbt.layer.cornerRadius = _registbt.frame.size.height/2;
@@ -136,7 +143,7 @@
     [_registbt addTarget:self action:@selector(registerAct) forControlEvents:UIControlEventTouchUpInside];
     
     
-    UILabel *versionlabel = [[UILabel alloc]initWithFrame:CGRectMake(10, (HEIGHTSCALE-25-33)/heightreal, WIDGHT-20, 33/heightreal)];
+    UILabel *versionlabel = [[UILabel alloc]initWithFrame:CGRectMake(10, _registbt.frame.size.height+_registbt.frame.origin.y + 158/heightreal, WIDGHT-20, 33/heightreal)];
     versionlabel.textColor = UIColorFromRGBA(0x999999, 1.0);
     versionlabel.textAlignment = NSTextAlignmentCenter;
     versionlabel.font = [UIFont systemFontOfSize:12.0];
@@ -154,236 +161,18 @@
    
     UITapGestureRecognizer *backgroundtap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(backgroundtapAct)];
     [backimage addGestureRecognizer:backgroundtap];
-   
-}
-//懒加载
--(UIView *)SkipView
-{
-    if (!_SkipView) {
-        _SkipView = [[UIView alloc]initWithFrame:CGRectMake(61/widthreal, (311)/heightreal, 170/widthreal, 18/heightreal)];
-        _SkipView.layer.cornerRadius = _SkipView.frame.size.height/2;
-        _SkipView.hidden = YES;
-        _SkipView.backgroundColor = UIColorFromRGBA(themeColor, 0.8);
-        [self.view addSubview:_SkipView];
-    }
-    return _SkipView;
-}
--(UIImageView *)closeimage
-{
-    if (!_closeimage) {
-        _closeimage = [[UIImageView alloc]initWithFrame:CGRectMake((WIDGHTSCALE - 36 -33)/widthreal, (70)/heightreal, 32/widthreal, 32/heightreal)];
-        _closeimage.image = kLGetImage(@"关闭页面");
-        _closeimage.hidden=YES;
-        _closeimage.alpha = 0;
-        _closeimage.userInteractionEnabled =YES;
-        [self.view addSubview:_closeimage];
-           UITapGestureRecognizer *closetap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(closetapAct)];
-        [_closeimage addGestureRecognizer:closetap];
-    }
-    return _closeimage;
-}
--(UIButton *)registitlebt
-{
-    if (!_registitlebt) {
-        _registitlebt = [UIButton buttonWithType:UIButtonTypeCustom];
-        _registitlebt.frame = CGRectMake(78/widthreal, (244)/heightreal, 145/widthreal, 90/heightreal);
-        [_registitlebt setTitle:@"注册" forState:UIControlStateNormal];
-        _registitlebt.titleLabel.font = [UIFont systemFontOfSize:32];
-        [_registitlebt setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [_registitlebt addTarget:self action:@selector(registerSkipAct) forControlEvents:UIControlEventTouchUpInside];
-        _registitlebt.alpha = 0;
-        _registitlebt.hidden = YES;
-        [self.view addSubview:_registitlebt];
-    }
-    return _registitlebt;
-}
--(UIButton *)logintitlebt
-{
-    if (!_logintitlebt) {
-        _logintitlebt = [UIButton buttonWithType:UIButtonTypeCustom];
-        _logintitlebt.frame = CGRectMake(303/widthreal, (244)/heightreal, 145/widthreal, 90/heightreal);
-        [_logintitlebt setTitle:@"登录" forState:UIControlStateNormal];
-        _logintitlebt.titleLabel.font = [UIFont systemFontOfSize:32];
-        [_logintitlebt setTitleColor:UIColorFromRGBA(0xffffff,0.62) forState:UIControlStateNormal];
-        [_logintitlebt addTarget:self action:@selector(loginSkipAct) forControlEvents:UIControlEventTouchUpInside];
-        _logintitlebt.alpha = 0;
-        _logintitlebt.hidden = YES;
-        [self.view addSubview:_logintitlebt];
-    }
-    return _logintitlebt;
-}
--(UIImageView *)nameimage
-{
-    if (!_nameimage) {
-        _nameimage = [[UIImageView alloc]initWithFrame:CGRectMake((76)/widthreal, (546)/heightreal, 26/widthreal, 38/heightreal)];
-        _nameimage.image = kLGetImage(@"手机图标");
-        _nameimage.hidden=YES;
-        _nameimage.alpha = 0;
-        [self.view addSubview:_nameimage];
-    }
-    return _nameimage;
-}
--(UILabel *)namelabel{
-    if (!_namelabel) {
-        _namelabel = [[UILabel alloc]initWithFrame:CGRectMake((142)/widthreal, (540)/heightreal, 506/widthreal, 48/heightreal)];
-        _namelabel.text = @"请输入手机号码";
-       _namelabel.alpha = 0;
-       _namelabel.hidden = YES;
-       _namelabel.font =[UIFont systemFontOfSize:17];
-       _namelabel.textColor =UIColorFromRGBA(0xffffff,0.62);
-        [self.view addSubview:_namelabel];
-    }
-    return _namelabel;
-}
--(UITextField *)namefield{
-    if (!_namefield) {
-        _namefield = [[UITextField alloc]initWithFrame:CGRectMake((142)/widthreal, (546)/heightreal, 541/widthreal, 48/heightreal)];
-        _namefield.borderStyle = UITextBorderStyleNone;
-        _namefield.placeholder = @"";
-        _namefield.textColor = [UIColor whiteColor];
-        _namefield.font=[UIFont systemFontOfSize:17];
-        _namefield.clearButtonMode =UITextFieldViewModeAlways;
-        _namefield.delegate =self;
-        UIButton *button = [self.namefield valueForKey:@"_clearButton"];
-        [button setImage:[UIImage imageNamed:@"快速删除"] forState:UIControlStateNormal];
-        _namefield.clearButtonMode = UITextFieldViewModeWhileEditing;
-        _namefield.borderStyle = UITextBorderStyleNone;
-        _namebotline.alpha= 0;
-        _namebotline.hidden =YES;
-        [self.view addSubview:_namefield];
-    }
-    return _namefield;
-}
--(UIView *)namebotline
-{
-    if (!_namebotline) {
-        _namebotline =[[UIView alloc]initWithFrame:CGRectMake((65)/widthreal, (609)/heightreal, 621/widthreal, 3/heightreal)];
-        _namebotline.backgroundColor =UIColorFromRGBA(0xffffff,0.62);
-        _namebotline.alpha = 0;
-        _namebotline.hidden = YES;
-        [self.view addSubview:_namebotline];
-    }
-    return _namebotline;
-}
--(UIImageView *)pwdimage
-{
-    if (!_pwdimage) {
-        _pwdimage = [[UIImageView alloc]initWithFrame:CGRectMake((76)/widthreal, (682)/heightreal, 26/widthreal, 38/heightreal)];
-        _pwdimage.image = kLGetImage(@"密码图标");
-        _pwdimage.hidden=YES;
-        _pwdimage.alpha = 0;
-        [self.view addSubview:_pwdimage];
-    }
-    return _pwdimage;
     
-}
--(UILabel *)pwdlabel
-{
-    if (!_pwdlabel) {
-        _pwdlabel = [[UILabel alloc]initWithFrame:CGRectMake((142)/widthreal, (670)/heightreal, 506/widthreal, 48/heightreal)];
-        _pwdlabel.text = @"请设置您的登录密码";
-       _pwdlabel.alpha = 0;
-        _pwdlabel.hidden = YES;
-        _pwdlabel.font =[UIFont systemFontOfSize:17];
-        _pwdlabel.textColor =UIColorFromRGBA(0xffffff,0.62);
-        [self.view addSubview:_pwdlabel];
-    }
-    return _pwdlabel;
-}
--(UITextField *)pwdfield
-{
-    if (_pwdfield) {
-        _pwdfield = [[UITextField alloc]initWithFrame:CGRectMake((142)/widthreal, (682)/heightreal, 406/widthreal, 48/heightreal)];
-        _pwdfield.borderStyle = UITextBorderStyleNone;
-        _pwdfield.placeholder = @"";
-        _pwdfield.textColor = [UIColor whiteColor];
-        _pwdfield.font=[UIFont systemFontOfSize:17];
-        _pwdfield.delegate =self;
-        UIButton *button1 = [self.pwdfield valueForKey:@"_clearButton"];
-        [button1 setImage:[UIImage imageNamed:@"快速删除"] forState:UIControlStateNormal];
-        _pwdfield.clearButtonMode = UITextFieldViewModeWhileEditing;
-        _pwdfield.borderStyle = UITextBorderStyleNone;
-        _pwdfield.secureTextEntry = YES;
-        _pwdfield.alpha = 0;
-        _pwdfield.hidden = YES;
-        [self.view addSubview:_pwdfield];
-    }
-    return _pwdfield;
-}
--(UIButton *)eyebt
-{
-    if (!_eyebt) {
-        _eyebt = [UIButton buttonWithType:UIButtonTypeCustom];
-        _eyebt.frame = CGRectMake((WIDGHTSCALE - 69 -34)/widthreal, (698)/heightreal, 34/widthreal, 15/heightreal);
-        [_eyebt setImage:kLGetImage(@"隐藏密码图标") forState:UIControlStateNormal];
-        _eyebt.hidden=YES;
-        _eyebt.alpha = 0;
-        [_eyebt addTarget:self action:@selector(eyebttapAct) forControlEvents:UIControlEventTouchUpInside];
-        
-        [self.view addSubview:_eyebt];
-    }
-    return _eyebt;
-}
--(UIView *)pwdbotline
-{
-    if (!_pwdbotline) {
-        _pwdbotline =[[UIView alloc]initWithFrame:CGRectMake((65)/widthreal, (751)/heightreal, 621/widthreal, 3/heightreal)];
-        _pwdbotline.backgroundColor =UIColorFromRGBA(0xffffff,0.62);
-        _pwdbotline.alpha = 0;
-        _pwdbotline.hidden = YES;
-        [self.view addSubview:_pwdbotline];
-    }
-    return _pwdbotline;
-}
--(UIButton *)nextbt
-{
-    if (!_nextbt) {
-        _nextbt = [UIButton buttonWithType:UIButtonTypeCustom];
-        _nextbt.frame = CGRectMake(65/widthreal, (HEIGHTSCALE - 341-98)/heightreal, 620/widthreal, 98/heightreal);
-        _nextbt.backgroundColor = UIColorFromRGB(themeColor);
-        _nextbt.layer.masksToBounds = YES;
-        _nextbt.layer.cornerRadius = _nextbt.frame.size.height/2;
-        [_nextbt setTitle:@"下一步" forState:UIControlStateNormal];
-        [_nextbt setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [_nextbt addTarget:self action:@selector(nextbtAct) forControlEvents:UIControlEventTouchUpInside];
-        _nextbt.alpha = 0;
-        _nextbt.hidden = YES;
-        [self.view addSubview:_nextbt];
-    }
-    return _nextbt;
-}
--(UILabel *)registknown
-{
-    if (!_registknown) {
-        _registknown =[[UILabel alloc]initWithFrame:CGRectMake(65/widthreal,(HEIGHTSCALE - 268-40)/heightreal,  (WIDGHTSCALE-130)/widthreal, 40/heightreal)];
-        _registknown.textColor = UIColorFromRGBA(0xffffff,0.62);
-        NSMutableAttributedString *hintString=[[NSMutableAttributedString alloc]initWithString:@"注册代表您同意《鱼头用户协议》"];
-        //获取要调整颜色的文字位置,调整颜色
-        NSRange range1=[[hintString string]rangeOfString:@"《鱼头用户协议》"];
-        [hintString addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:range1];
-        _registknown.attributedText=hintString;
-        _registknown.textAlignment = NSTextAlignmentCenter;
-        _registknown.font = [UIFont systemFontOfSize:14.0];
-        _registknown.alpha = 0;
-        _registknown.hidden = YES;
-        [self.view addSubview:_registknown];
-    }
-    return _registknown;
-}
--(UILabel *)forgetlabel
-{
-    if (!_forgetlabel) {
-        _forgetlabel  = [[UILabel alloc]initWithFrame:CGRectMake(65/widthreal,(HEIGHTSCALE - 268-40)/heightreal,  (WIDGHTSCALE-130)/widthreal, 40/heightreal)];
-        _forgetlabel.textColor = UIColorFromRGBA(0xffffff,1);
-        _forgetlabel.text = @"忘记密码";
-        _forgetlabel.textAlignment = NSTextAlignmentCenter;
-        _forgetlabel.font = [UIFont systemFontOfSize:14.0];
-        _forgetlabel.hidden = YES;
-        _forgetlabel.alpha =0;
-        [self.view addSubview:_forgetlabel];
-        
-    }
-    return _forgetlabel;
+    UIView *view =[[UIView alloc]initWithFrame:CGRectMake(WIDGHT- 40, (70)/heightreal, 40, 35)];
+    _closeimage = [[UIImageView alloc]initWithFrame:CGRectMake(8, 10, 16, 16)];
+    _closeimage.image = kLGetImage(@"关闭页面");
+    _closeimage.hidden=YES;
+    _closeimage.alpha = 0;
+    _closeimage.userInteractionEnabled =YES;
+    [view addSubview:_closeimage];
+    [self.view addSubview:view];
+    UITapGestureRecognizer *closetap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(closetapAct)];
+    [view addGestureRecognizer:closetap];
+   
 }
 
 -(void)registerSkipAct
@@ -393,9 +182,11 @@
     [self.nextbt setTitle:@"下一步" forState:UIControlStateNormal];
      self.pwdlabel.text = @"请设置您的登录密码";
     self.registknown.hidden = NO;
+    self.registknown.alpha =1;
     self.forgetlabel.hidden = YES;
+    self.forgetlabel.alpha = 0;
     [UIView animateWithDuration:0.3 animations:^{
-        self.SkipView.frame = CGRectMake(61/widthreal, (311)/heightreal, 170/widthreal, 18/heightreal);
+        self.SkipView.frame = CGRectMake(61/widthreal, (311)/heightreal,82, 18/heightreal);
     } completion:^(BOOL finished) {
         
     }];
@@ -408,18 +199,29 @@
     [self.nextbt setTitle:@"登录" forState:UIControlStateNormal];
      self.pwdlabel.text = @"请输入您的登录密码";
     self.registknown.hidden = YES;
+     self.registknown.alpha =0;
     self.forgetlabel.hidden = NO;
+     self.forgetlabel.alpha =1;
     [UIView animateWithDuration:0.3 animations:^{
-        self.SkipView.frame = CGRectMake(293/widthreal, (311)/heightreal, 170/widthreal, 18/heightreal);
+        self.SkipView.frame = CGRectMake(110/widthreal+85, (311)/heightreal, 82, 18/heightreal);
     } completion:^(BOOL finished) {
         
     }];
 }
--(void)nextbtAct
+-(void)nextbtAct:(UIButton *)sender
 {
-    JKgetcode *vc =[[JKgetcode alloc]init];
-    vc.phoneNum = self.namefield.text;
-    [self.navigationController pushViewController:vc animated:YES];
+    if ([sender.titleLabel.text isEqualToString:@"登录"]) {
+        JKLog(@"login");
+        _myBlock();
+    }{
+        JKgetcode *vc =[[JKgetcode alloc]init];
+        vc.phoneNum = self.namefield.text;
+        vc.goRegist =   _myBlock;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    
+    
+  
 }
 -(void)closetapAct{
     [UIView animateWithDuration:0.5 animations:^{
@@ -448,25 +250,30 @@
         self.namebotline.alpha =0;
         self.pwdimage.alpha =0;
         self.pwdlabel.alpha=0;
+          self.eyebt.alpha = 0;
         self.pwdbotline.alpha =0;
+          self.nextbt.alpha =0;
         self.registknown.alpha =0;
-        self.eyebt.alpha = 0;
-        self.nextbt.alpha =0;
+      
+      
     } completion:^(BOOL finished) {
         self.closeimage.hidden = YES;
         self.registitlebt.hidden = YES;
         self.logintitlebt.hidden = YES;
+         self.SkipView.hidden = YES;
         self.nameimage.hidden =YES;
         self.namelabel.hidden=YES;
         self.namebotline.hidden =YES;
         self.pwdimage.hidden =YES;
         self.pwdlabel.hidden=YES;
+          self.eyebt.hidden=YES;
         self.pwdbotline.hidden =YES;
+         self.nextbt.hidden = YES;
         self.registknown.hidden =YES;
-        self.eyebt.hidden=YES;
-        self.nextbt.hidden = YES;
-        self.SkipView.hidden = YES;
-        self.forgetlabel.hidden =YES;
+      self.forgetlabel.hidden =YES;
+       
+       
+        
     }];
 }
 -(void)backgroundtapAct
@@ -481,7 +288,7 @@
     }
     if (self.pwdfield.text.length == 0) {
         [UIView animateWithDuration:0.5 animations:^{
-            self.pwdlabel.frame = CGRectMake((142)/widthreal, (670)/heightreal, 506/widthreal, 48/heightreal);
+            self.pwdlabel.frame = CGRectMake((142)/widthreal, (678)/heightreal, 506/widthreal, 48/heightreal);
             self.pwdlabel.font =[UIFont systemFontOfSize:17];
         } completion:^(BOOL finished) {
             
@@ -517,12 +324,12 @@
 {
     if (_openeye) {
         
-        _eyebt.frame = CGRectMake((WIDGHTSCALE - 69 -34)/widthreal, (685)/heightreal, 38/widthreal, 22/heightreal);
+        _eyebt.frame = CGRectMake(WIDGHT - 65/widthreal -19 , (698)/heightreal, 19, 11);
         [_eyebt setImage:kLGetImage(@"显示密码图标") forState:UIControlStateNormal];
       
         
     }else{
-        _eyebt.frame = CGRectMake((WIDGHTSCALE - 69 -34)/widthreal, (685)/heightreal, 34/widthreal, 15/heightreal);
+        _eyebt.frame = CGRectMake(WIDGHT - 65/widthreal -19 , (698)/heightreal, 19, 9);
        
          [_eyebt setImage:kLGetImage(@"隐藏密码图标") forState:UIControlStateNormal];
     }
@@ -560,13 +367,16 @@
         self.pwdlabel.alpha=1;
         self.pwdfield.alpha =1;
         self.pwdbotline.alpha =1;
-        self.registknown.alpha =1;
         self.eyebt.alpha = 1;
         self.nextbt.alpha =1;
+        self.registknown.alpha =1;
+      
+       
     } completion:^(BOOL finished) {
         self.closeimage.hidden = NO;
         self.registitlebt.hidden = NO;
         self.logintitlebt.hidden = NO;
+        self.SkipView.hidden = NO;
         self.nameimage.hidden =NO;
         self.namefield.hidden = NO;
         self.namelabel.hidden=NO;
@@ -575,10 +385,12 @@
         self.pwdlabel.hidden=NO;
         self.pwdfield.hidden = NO;
         self.pwdbotline.hidden =NO;
-        self.registknown.hidden =NO;
         self.eyebt.hidden=NO;
         self.nextbt.hidden = NO;
-        self.SkipView.hidden = NO;
+        self.registknown.hidden =NO;
+      
+      
+        
     }];
 }
 -(void)registerAct{
@@ -612,6 +424,222 @@
     [self loginSkipAct];
  
 }
+#pragma mark 懒加载
+-(UIView *)SkipView
+{
+    if (!_SkipView) {
+        _SkipView = [[UIView alloc]initWithFrame:CGRectMake(61/widthreal, (311)/heightreal,82, 18/heightreal)];
+        _SkipView.layer.cornerRadius = _SkipView.frame.size.height/2;
+        _SkipView.hidden = YES;
+        _SkipView.backgroundColor = UIColorFromRGBA(themeColor, 0.8);
+        [self.view addSubview:_SkipView];
+    }
+    return _SkipView;
+}
+-(UIButton *)registitlebt
+{
+    if (!_registitlebt) {
+        _registitlebt = [UIButton buttonWithType:UIButtonTypeCustom];
+        _registitlebt.frame = CGRectMake(78/widthreal, (244)/heightreal, 72, 90/heightreal);
+        [_registitlebt setTitle:@"注册" forState:UIControlStateNormal];
+        _registitlebt.titleLabel.font = [UIFont systemFontOfSize:32];
+        [_registitlebt setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_registitlebt addTarget:self action:@selector(registerSkipAct) forControlEvents:UIControlEventTouchUpInside];
+        _registitlebt.alpha = 0;
+        _registitlebt.hidden = YES;
+        [self.view addSubview:_registitlebt];
+    }
+    return _registitlebt;
+}
+-(UIButton *)logintitlebt
+{
+    if (!_logintitlebt) {
+        _logintitlebt = [UIButton buttonWithType:UIButtonTypeCustom];
+        _logintitlebt.frame = CGRectMake(158/widthreal +72, (244)/heightreal, 72, 90/heightreal);
+        [_logintitlebt setTitle:@"登录" forState:UIControlStateNormal];
+        _logintitlebt.titleLabel.font = [UIFont systemFontOfSize:32];
+        [_logintitlebt setTitleColor:UIColorFromRGBA(0xffffff,0.62) forState:UIControlStateNormal];
+        [_logintitlebt addTarget:self action:@selector(loginSkipAct) forControlEvents:UIControlEventTouchUpInside];
+        _logintitlebt.alpha = 0;
+        _logintitlebt.hidden = YES;
+        [self.view addSubview:_logintitlebt];
+    }
+    return _logintitlebt;
+}
+-(UIImageView *)nameimage
+{
+    if (!_nameimage) {
+        _nameimage = [[UIImageView alloc]initWithFrame:CGRectMake((76)/widthreal, (546)/heightreal, 26/widthreal, 38/heightreal)];
+        _nameimage.image = kLGetImage(@"手机图标");
+        _nameimage.hidden=YES;
+        _nameimage.alpha = 0;
+        [self.view addSubview:_nameimage];
+    }
+    return _nameimage;
+}
+-(UILabel *)namelabel{
+    if (!_namelabel) {
+        _namelabel = [[UILabel alloc]initWithFrame:CGRectMake((142)/widthreal, (540)/heightreal, 506/widthreal, 48/heightreal)];
+        _namelabel.text = @"请输入手机号码";
+        _namelabel.alpha = 0;
+        _namelabel.hidden = YES;
+        _namelabel.font =[UIFont systemFontOfSize:17];
+        _namelabel.textColor =UIColorFromRGBA(0xffffff,0.62);
+        [self.view addSubview:_namelabel];
+    }
+    return _namelabel;
+}
+-(UITextField *)namefield{
+    if (!_namefield) {
+        _namefield = [[UITextField alloc]initWithFrame:CGRectMake((142)/widthreal, (546)/heightreal, 541/widthreal, 48/heightreal)];
+        _namefield.borderStyle = UITextBorderStyleNone;
+        _namefield.placeholder = @"";
+        _namefield.textColor = [UIColor whiteColor];
+        _namefield.font=[UIFont systemFontOfSize:17];
+        _namefield.clearButtonMode =UITextFieldViewModeAlways;
+        _namefield.delegate =self;
+        UIButton *button = [_namefield valueForKey:@"_clearButton"];
+        [button setImage:[UIImage imageNamed:@"快速删除"] forState:UIControlStateNormal];
+        _namefield.clearButtonMode = UITextFieldViewModeWhileEditing;
+        _namefield.borderStyle = UITextBorderStyleNone;
+        _namefield.alpha= 0;
+        _namefield.hidden =YES;
+        [self.view addSubview:_namefield];
+    }
+    return _namefield;
+}
+-(UIView *)namebotline
+{
+    if (!_namebotline) {
+        _namebotline =[[UIView alloc]initWithFrame:CGRectMake((65)/widthreal, (609)/heightreal, WIDGHT-(65)/widthreal*2 , 3/heightreal)];
+        _namebotline.backgroundColor =UIColorFromRGBA(0xffffff,0.62);
+        _namebotline.alpha = 0;
+        _namebotline.hidden = YES;
+        [self.view addSubview:_namebotline];
+    }
+    return _namebotline;
+}
+-(UIImageView *)pwdimage
+{
+    if (!_pwdimage) {
+        _pwdimage = [[UIImageView alloc]initWithFrame:CGRectMake((76)/widthreal, (682)/heightreal, 26/widthreal, 38/heightreal)];
+        _pwdimage.image = kLGetImage(@"密码图标");
+        _pwdimage.hidden=YES;
+        _pwdimage.alpha = 0;
+        [self.view addSubview:_pwdimage];
+    }
+    return _pwdimage;
+    
+}
+-(UILabel *)pwdlabel
+{
+    if (!_pwdlabel) {
+        _pwdlabel = [[UILabel alloc]initWithFrame:CGRectMake((142)/widthreal, (678)/heightreal, 506/widthreal, 48/heightreal)];
+        _pwdlabel.text = @"请设置您的登录密码";
+        _pwdlabel.alpha = 0;
+        _pwdlabel.hidden = YES;
+        _pwdlabel.font =[UIFont systemFontOfSize:17];
+        _pwdlabel.textColor =UIColorFromRGBA(0xffffff,0.62);
+        [self.view addSubview:_pwdlabel];
+    }
+    return _pwdlabel;
+}
+-(UITextField *)pwdfield
+{
+    if (!_pwdfield) {
+        _pwdfield = [[UITextField alloc]initWithFrame:CGRectMake((142)/widthreal, (682)/heightreal, 406/widthreal, 48/heightreal)];
+        _pwdfield.borderStyle = UITextBorderStyleNone;
+        _pwdfield.placeholder = @"";
+        _pwdfield.textColor = [UIColor whiteColor];
+        _pwdfield.font=[UIFont systemFontOfSize:17];
+        _pwdfield.delegate =self;
+        UIButton *button1 = [_pwdfield valueForKey:@"_clearButton"];
+        [button1 setImage:[UIImage imageNamed:@"快速删除"] forState:UIControlStateNormal];
+        _pwdfield.clearButtonMode = UITextFieldViewModeWhileEditing;
+        _pwdfield.borderStyle = UITextBorderStyleNone;
+        _pwdfield.secureTextEntry = YES;
+        
+        [self.view addSubview:_pwdfield];
+    }
+    return _pwdfield;
+}
+-(UIButton *)eyebt
+{
+    if (!_eyebt) {
+        _eyebt = [UIButton buttonWithType:UIButtonTypeCustom];
+        _eyebt.frame = CGRectMake(WIDGHT -65/widthreal -19 , (698)/heightreal, 19, 11);
+        [_eyebt setImage:kLGetImage(@"隐藏密码图标") forState:UIControlStateNormal];
+        _eyebt.hidden=YES;
+        _eyebt.alpha = 0;
+        [_eyebt addTarget:self action:@selector(eyebttapAct) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self.view addSubview:_eyebt];
+    }
+    return _eyebt;
+}
+-(UIView *)pwdbotline
+{
+    if (!_pwdbotline) {
+        _pwdbotline =[[UIView alloc]initWithFrame:CGRectMake((65)/widthreal, (751)/heightreal, WIDGHT-(65)/widthreal*2, 3/heightreal)];
+        _pwdbotline.backgroundColor =UIColorFromRGBA(0xffffff,0.62);
+        _pwdbotline.alpha = 0;
+        _pwdbotline.hidden = YES;
+        [self.view addSubview:_pwdbotline];
+    }
+    return _pwdbotline;
+}
+-(UIButton *)nextbt
+{
+    if (!_nextbt) {
+        _nextbt = [UIButton buttonWithType:UIButtonTypeCustom];
+        _nextbt.frame = CGRectMake(65/widthreal, _pwdbotline.frame.size.height+_pwdbotline.frame.origin.y+141/heightreal, 620/widthreal, 98/heightreal);
+        _nextbt.backgroundColor = UIColorFromRGB(themeColor);
+        _nextbt.layer.masksToBounds = YES;
+        _nextbt.layer.cornerRadius = _nextbt.frame.size.height/2;
+        [_nextbt setTitle:@"下一步" forState:UIControlStateNormal];
+        [_nextbt setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_nextbt addTarget:self action:@selector(nextbtAct:) forControlEvents:UIControlEventTouchUpInside];
+        _nextbt.alpha = 0;
+        _nextbt.hidden = YES;
+        [self.view addSubview:_nextbt];
+    }
+    return _nextbt;
+}
+-(UILabel *)registknown
+{
+    if (!_registknown) {
+        _registknown =[[UILabel alloc]initWithFrame:CGRectMake(65/widthreal,_nextbt.frame.size.height+_nextbt.frame.origin.y+33/heightreal,  WIDGHT -65/widthreal*2, 40/heightreal)];
+        _registknown.textColor = UIColorFromRGBA(0xffffff,0.62);
+        NSMutableAttributedString *hintString=[[NSMutableAttributedString alloc]initWithString:@"注册代表您同意《鱼头用户协议》"];
+        //获取要调整颜色的文字位置,调整颜色
+        NSRange range1=[[hintString string]rangeOfString:@"《鱼头用户协议》"];
+        [hintString addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:range1];
+        _registknown.attributedText=hintString;
+        _registknown.textAlignment = NSTextAlignmentCenter;
+        _registknown.font = [UIFont systemFontOfSize:14.0];
+        _registknown.alpha = 0;
+        _registknown.hidden = YES;
+        [self.view addSubview:_registknown];
+    }
+    return _registknown;
+}
+-(UILabel *)forgetlabel
+{
+    if (!_forgetlabel) {
+        _forgetlabel  = [[UILabel alloc]initWithFrame:CGRectMake(65/widthreal,_nextbt.frame.size.height+_nextbt.frame.origin.y+33/heightreal,   WIDGHT -65/widthreal*2, 40/heightreal)];
+        _forgetlabel.textColor = UIColorFromRGBA(0xffffff,1);
+        _forgetlabel.text = @"忘记密码";
+        _forgetlabel.textAlignment = NSTextAlignmentCenter;
+        _forgetlabel.font = [UIFont systemFontOfSize:14.0];
+        _forgetlabel.hidden = YES;
+        _forgetlabel.alpha =0;
+        [self.view addSubview:_forgetlabel];
+        
+    }
+    return _forgetlabel;
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

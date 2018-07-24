@@ -9,5 +9,5 @@
 #import "JKViewController.h"
 
 @interface JKgetuserInfo : JKViewController
-
+@property (nonatomic,copy) void(^Regist)(void);
 @end

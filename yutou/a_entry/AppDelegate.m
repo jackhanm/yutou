@@ -37,8 +37,11 @@
     
     self.window.rootViewController =JKenterNavigationController;
     JKenterNavigationController.navigationBarHidden = YES;
-    
-//    self.window.rootViewController = [self setupViewControllers];
+    void (^bolck1)(void) = ^(void) {
+        self.window.rootViewController = [self setupViewControllers];
+    };
+    [firstViewController loginblock:bolck1];
+//
     [self.window makeKeyAndVisible];
     
     
@@ -47,9 +50,9 @@
 }
 - (CYLTabBarController * )setupViewControllers {
     JKfind *firstViewController = [[JKfind alloc] init];
-    UIViewController *firstNavigationController = [[UINavigationController alloc]
+    UINavigationController *firstNavigationController = [[UINavigationController alloc]
                                                    initWithRootViewController:firstViewController];
-    
+    firstNavigationController.navigationBarHidden = YES;
     JKroot *secondViewController = [[JKroot alloc] init];
     UIViewController *secondNavigationController = [[UINavigationController alloc]
                                                     initWithRootViewController:secondViewController];
@@ -57,13 +60,8 @@
     JKmine *ThirdViewController = [[JKmine alloc] init];
     UIViewController *ThirdNavigationController = [[UINavigationController alloc]
                                                     initWithRootViewController:ThirdViewController];
-    JKenter *FourthViewController = [[JKenter alloc] init];
-    UIViewController *FourthNavigationController = [[UINavigationController alloc]
-                                                   initWithRootViewController:FourthViewController];
-    
-    
-    
-    
+  
+   
     CYLTabBarController *tabBarController = [[CYLTabBarController alloc] init];
     [self customizeTabBarForController:tabBarController];
     
@@ -71,7 +69,7 @@
                                            firstNavigationController,
                                            secondNavigationController,
                                            ThirdNavigationController,
-                                           FourthNavigationController
+                                         
                                            ]];
     return  tabBarController;
 }
@@ -80,28 +78,35 @@
     
     NSDictionary *dict1 = @{
                             CYLTabBarItemTitle : @"发现",
-                            CYLTabBarItemImage : @"",
-                            CYLTabBarItemSelectedImage : @"",
+                            CYLTabBarItemImage : @"发现-未选中",
+                            CYLTabBarItemSelectedImage : @"发现-选中",
                             };
     NSDictionary *dict2 = @{
                             CYLTabBarItemTitle : @"好友",
-                            CYLTabBarItemImage : @"",
-                            CYLTabBarItemSelectedImage : @"",
+                            CYLTabBarItemImage : @"鱼-未选中",
+                            CYLTabBarItemSelectedImage : @"鱼-选中",
                             };
     NSDictionary *dict3 = @{
                             CYLTabBarItemTitle : @"我的",
-                            CYLTabBarItemImage : @"",
-                            CYLTabBarItemSelectedImage : @"",
+                            CYLTabBarItemImage : @"我的-未选中",
+                            CYLTabBarItemSelectedImage : @"我的-选中",
                             };
-    NSDictionary *dict4 = @{
-                            CYLTabBarItemTitle : @"登录",
-                            CYLTabBarItemImage : @"",
-                            CYLTabBarItemSelectedImage : @"",
-                            };
+   
     
     
-    NSArray *tabBarItemsAttributes =[NSArray arrayWithObjects:dict1,dict2,dict3,dict4, nil];
+    NSArray *tabBarItemsAttributes =[NSArray arrayWithObjects:dict1,dict2,dict3, nil];
     tabBarController.tabBarItemsAttributes = tabBarItemsAttributes;
+    [[UITabBar appearance] setShadowImage:[[UIImage alloc] init]];
+    
+    
+    NSMutableDictionary *selectedAttrs = [NSMutableDictionary dictionary];
+    selectedAttrs[NSForegroundColorAttributeName] =UIColorFromRGB(themeColor);
+    
+    // set the text Attributes
+    // 设置文字属性
+    UITabBarItem *tabBar = [UITabBarItem appearance];
+   
+    [tabBar setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
 }
 
 

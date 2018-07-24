@@ -6,4 +6,5 @@ pod 'DZNEmptyDataSet'
 pod 'VTMagic', '~> 1.2.4'
 pod 'CYLTabBarController', '~> 1.17.11'
 pod 'Hyphenate'
+pod 'Masonry', '~> 1.1.0'
 end

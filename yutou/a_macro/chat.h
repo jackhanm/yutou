@@ -13,6 +13,7 @@
 #import <UIKit/UIKit.h>
 #import <Hyphenate/Hyphenate.h>
 #import "NSString+Predicate.h"
+#import <Masonry.h>
 #endif
 
 #endif /* chat_h */

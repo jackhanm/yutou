@@ -35,7 +35,7 @@
 }
 -(void)createview
 {
-    _backimage = [[UIImageView alloc]initWithFrame:CGRectMake((37)/widthreal, (74)/heightreal, 37/widthreal, 30/heightreal)];
+    _backimage = [[UIImageView alloc]initWithFrame:CGRectMake((37)/widthreal, (74)/heightreal, 19,15)];
     _backimage.image = kLGetImage(@"返回上一页面");
     _backimage.userInteractionEnabled =YES;
     
@@ -44,7 +44,7 @@
     _subtitlelabel.textColor = UIColorFromRGB(0x333333);
     _subtitlelabel.font = [UIFont systemFontOfSize:32.0];
     
-    _noticelable =[[UILabel alloc]initWithFrame:CGRectMake(63/widthreal, 361/heightreal, (461)/widthreal, 45/heightreal)];
+    _noticelable =[[UILabel alloc]initWithFrame:CGRectMake(63/widthreal, 361/heightreal, WIDGHT -63/widthreal , 45/heightreal)];
     _noticelable.text = @"请让我茫茫人海中一眼看到你";
     _noticelable.textColor = UIColorFromRGB(0x999999);
     _noticelable.font = [UIFont systemFontOfSize:16.0];
@@ -111,7 +111,12 @@
 
     
     //添加页面
-    [self.view addSubview:_backimage];
+    UIView *view =[[UIView alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
+    [view addSubview:_backimage];
+    
+    
+    [self.view addSubview:view];
+    
     [self.view addSubview:_subtitlelabel];
      [self.view addSubview:_noticelable];
     [self.view addSubview:_namelabel];
@@ -125,7 +130,7 @@
     
     //添加手势
     UITapGestureRecognizer *backtap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(backtapAct)];
-    [_backimage addGestureRecognizer:backtap];
+    [view addGestureRecognizer:backtap];
     
     UITapGestureRecognizer *mantap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(mantapAct)];
     [_manChoose addGestureRecognizer:mantap];
@@ -140,6 +145,8 @@
 }
 -(void)startbtAct
 {
+    JKLog(@"regist");
+    _Regist();
     
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

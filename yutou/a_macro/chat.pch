@@ -64,8 +64,8 @@
 #define WIDTHSIXP 375.000000
 #define HEIGHTSIXP 667.000000
 #define HEIGHT  [[UIScreen mainScreen] bounds].size.height
-#define WIDGHTSCALE [UIScreen mainScreen].scale * WIDGHT
-#define HEIGHTSCALE [UIScreen mainScreen].scale * HEIGHT
+#define WIDGHTSCALE 2 * WIDGHT
+#define HEIGHTSCALE 2 * HEIGHT
 #define widthreal WIDTHSIXP*WIDGHT/2
 #define heightreal HEIGHTSIXP*HEIGHT/2
 

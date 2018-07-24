@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface JKenter : UIViewController
-
+-(void)loginblock:(void (^)(void))block;
 @end

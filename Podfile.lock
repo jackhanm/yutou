@@ -17,6 +17,7 @@ PODS:
   - CYLTabBarController (1.17.11)
   - DZNEmptyDataSet (1.8.1)
   - Hyphenate (3.4.2)
+  - Masonry (1.1.0)
   - Realm (3.7.4):
     - Realm/Headers (= 3.7.4)
   - Realm/Headers (3.7.4)
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - CYLTabBarController (~> 1.17.11)
   - DZNEmptyDataSet
   - Hyphenate
+  - Masonry (~> 1.1.0)
   - Realm (~> 3.7.4)
   - VTMagic (~> 1.2.4)
 
@@ -38,6 +40,7 @@ SPEC REPOS:
     - CYLTabBarController
     - DZNEmptyDataSet
     - Hyphenate
+    - Masonry
     - Realm
     - VTMagic
 
@@ -46,9 +49,10 @@ SPEC CHECKSUMS:
   CYLTabBarController: b6e0574c2f5592edfbfc71a1b2be8dc0374cf11a
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Hyphenate: 25e6dc90d5171a5bf77a92fa11a7638db85575d0
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   Realm: a469bb59e33f9926102ccaea4349822c53b9117e
   VTMagic: b49e5f456dbcbfd9a3588ba92417233a105bc193
 
-PODFILE CHECKSUM: 10b58f61638d0cf6a5e3623f1654c003079f6a01
+PODFILE CHECKSUM: f074f5c171a9a888b81b1ab7f1d20442fb5deaca
 
 COCOAPODS: 1.5.3
