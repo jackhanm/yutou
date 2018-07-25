@@ -9,5 +9,6 @@
 #import "JKViewController.h"
 
 @interface JKfind : JKViewController
-
+@property (nonatomic, strong) NSMutableArray *categoryArr;
+@property (nonatomic, strong) NSMutableArray *categoryArr1;
 @end

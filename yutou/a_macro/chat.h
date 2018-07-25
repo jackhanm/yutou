@@ -14,6 +14,8 @@
 #import <Hyphenate/Hyphenate.h>
 #import "NSString+Predicate.h"
 #import <Masonry.h>
+#import "UIButton+Size.h"
+#import "UIImageView+WebCache.h"
 #endif
 
 #endif /* chat_h */

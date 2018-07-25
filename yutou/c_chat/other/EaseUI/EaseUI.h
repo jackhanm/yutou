@@ -12,7 +12,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import "UIImageView+WebCache.h"
 
 #import "EaseConversationListViewController.h"
 #import "EaseMessageViewController.h"

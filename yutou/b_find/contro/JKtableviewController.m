@@ -12,6 +12,7 @@
 @interface JKtableviewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) NSMutableArray *modelArray;
 @property (nonatomic, strong) UIViewController *controller;
+
 @end
 
 @implementation JKtableviewController
@@ -42,7 +43,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     JKRecomandcell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([JKRecomandcell class])];
-    
+    cell.backgroundColor =randomColor;
     cell.RecomandModel = [self.modelArray objectAtIndex:indexPath.row];
     return cell;
 }
@@ -52,11 +53,8 @@
 
     for (unsigned long i = 0; i<10; i++) {
         JKRecomandModel *model = [[JKRecomandModel alloc] init];
-       
-        
+
         model.title = @"jack";
-       
-        
         [self.modelArray addObject:model];
         
     }
@@ -75,7 +73,7 @@
         [_tableView registerClass:[JKRecomandcell class] forCellReuseIdentifier:NSStringFromClass([JKRecomandcell class])];
         
         
-        UIView *tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0,  WIDGHT, 242)];
+        UIView *tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0,  WIDGHT, 475)];
         tableHeaderView.backgroundColor = [UIColor whiteColor];
         
         _tableView.scrollIndicatorInsets = UIEdgeInsetsMake(182, 0, 0, 0);
