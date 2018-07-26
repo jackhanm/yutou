@@ -201,6 +201,11 @@
 		6695A43020EDF20300ACC7A2 /* yutouUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6695A42F20EDF20300ACC7A2 /* yutouUITests.m */; };
 		6695A44020EDF4E400ACC7A2 /* JKenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6695A43F20EDF4E400ACC7A2 /* JKenter.m */; };
 		6695A45820EDF85300ACC7A2 /* JKlogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 6695A45720EDF85300ACC7A2 /* JKlogin.m */; };
+		66A293202109589300A2196C /* JKChannelitem.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A2931F2109589300A2196C /* JKChannelitem.m */; };
+		66A2932321095DD000A2196C /* JKChannelItemhead.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A2932221095DD000A2196C /* JKChannelItemhead.m */; };
+		66A293262109AFE100A2196C /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A293252109AFE100A2196C /* UITextView+Placeholder.m */; };
+		66A293292109B42C00A2196C /* LxGridViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A293282109B42C00A2196C /* LxGridViewFlowLayout.m */; };
+		66A2932C2109B4E100A2196C /* JKAddphotoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A2932B2109B4E100A2196C /* JKAddphotoItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -619,6 +624,16 @@
 		6695A43F20EDF4E400ACC7A2 /* JKenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKenter.m; sourceTree = "<group>"; };
 		6695A45620EDF85300ACC7A2 /* JKlogin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKlogin.h; sourceTree = "<group>"; };
 		6695A45720EDF85300ACC7A2 /* JKlogin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKlogin.m; sourceTree = "<group>"; };
+		66A2931E2109589200A2196C /* JKChannelitem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKChannelitem.h; sourceTree = "<group>"; };
+		66A2931F2109589300A2196C /* JKChannelitem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKChannelitem.m; sourceTree = "<group>"; };
+		66A2932121095DD000A2196C /* JKChannelItemhead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKChannelItemhead.h; sourceTree = "<group>"; };
+		66A2932221095DD000A2196C /* JKChannelItemhead.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKChannelItemhead.m; sourceTree = "<group>"; };
+		66A293242109AFDC00A2196C /* UITextView+Placeholder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
+		66A293252109AFE100A2196C /* UITextView+Placeholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder.m"; sourceTree = "<group>"; };
+		66A293272109B42500A2196C /* LxGridViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LxGridViewFlowLayout.h; sourceTree = "<group>"; };
+		66A293282109B42C00A2196C /* LxGridViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LxGridViewFlowLayout.m; sourceTree = "<group>"; };
+		66A2932A2109B4E100A2196C /* JKAddphotoItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKAddphotoItem.h; sourceTree = "<group>"; };
+		66A2932B2109B4E100A2196C /* JKAddphotoItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKAddphotoItem.m; sourceTree = "<group>"; };
 		DBD6723F85C135107F20FE10 /* libPods-yutou.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-yutou.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1362,6 +1377,8 @@
 		666851D42100312E00A19249 /* other */ = {
 			isa = PBXGroup;
 			children = (
+				66A293272109B42500A2196C /* LxGridViewFlowLayout.h */,
+				66A293282109B42C00A2196C /* LxGridViewFlowLayout.m */,
 				6691A1192108528200C518F8 /* SDCycleScrollView */,
 				6691A0D921084EAB00C518F8 /* cycle_01.jpg */,
 				6691A0DC21084EAD00C518F8 /* cycle_02.jpg */,
@@ -1380,6 +1397,12 @@
 			children = (
 				668DB7D22107121600EB96F9 /* JKRecomandcell.h */,
 				668DB7D32107121600EB96F9 /* JKRecomandcell.m */,
+				66A2931E2109589200A2196C /* JKChannelitem.h */,
+				66A2931F2109589300A2196C /* JKChannelitem.m */,
+				66A2932121095DD000A2196C /* JKChannelItemhead.h */,
+				66A2932221095DD000A2196C /* JKChannelItemhead.m */,
+				66A2932A2109B4E100A2196C /* JKAddphotoItem.h */,
+				66A2932B2109B4E100A2196C /* JKAddphotoItem.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1517,6 +1540,8 @@
 				6655BE3A21006D2300FCCB4E /* NSNull+NullSafe.m */,
 				6691A0D12108066B00C518F8 /* UIButton+Size.h */,
 				6691A0D22108067000C518F8 /* UIButton+Size.m */,
+				66A293242109AFDC00A2196C /* UITextView+Placeholder.h */,
+				66A293252109AFE100A2196C /* UITextView+Placeholder.m */,
 			);
 			path = a_category;
 			sourceTree = "<group>";
@@ -1787,6 +1812,7 @@
 				6695A40520EDF20100ACC7A2 /* Frameworks */,
 				6695A40620EDF20100ACC7A2 /* Resources */,
 				51E7D2EC5C44784993BAC910 /* [CP] Embed Pods Frameworks */,
+				508A5B763E49739CA9575BA5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1915,6 +1941,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		508A5B763E49739CA9575BA5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-yutou/Pods-yutou-resources.sh",
+				"${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TZImagePickerController.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-yutou/Pods-yutou-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		51E7D2EC5C44784993BAC910 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2013,6 +2057,7 @@
 				665C12C12100412E007B4B9A /* EaseEmoji.m in Sources */,
 				665C135B21004205007B4B9A /* EMTextView.m in Sources */,
 				6695A45820EDF85300ACC7A2 /* JKlogin.m in Sources */,
+				66A293202109589300A2196C /* JKChannelitem.m in Sources */,
 				6691A1092108516700C518F8 /* UIImage+WebP.m in Sources */,
 				6655BE032100642600FCCB4E /* UILabel+setLabel.m in Sources */,
 				6691A12C2108528200C518F8 /* TADotView.m in Sources */,
@@ -2027,6 +2072,7 @@
 				665C12C32100412E007B4B9A /* EaseEmojiEmoticons.m in Sources */,
 				6695A41B20EDF20300ACC7A2 /* main.m in Sources */,
 				6655BE3221006B1700FCCB4E /* DeviceDataLibrery.m in Sources */,
+				66A293292109B42C00A2196C /* LxGridViewFlowLayout.m in Sources */,
 				665C12ED2100412E007B4B9A /* MWTapDetectingView.m in Sources */,
 				6691A1162108516700C518F8 /* UIImageView+WebCache.m in Sources */,
 				665C13172100412E007B4B9A /* EaseUserCell.m in Sources */,
@@ -2041,6 +2087,7 @@
 				665C12F22100412E007B4B9A /* PSTCollectionViewFlowLayout.m in Sources */,
 				665C12CC2100412E007B4B9A /* UIView+MJExtension.m in Sources */,
 				665C12D92100412E007B4B9A /* MJRefreshAutoFooter.m in Sources */,
+				66A2932321095DD000A2196C /* JKChannelItemhead.m in Sources */,
 				6677F9022101DFA9002B560E /* JKgetuserInfo.m in Sources */,
 				665C12FD2100412E007B4B9A /* PSTGridLayoutItem.m in Sources */,
 				665C12DE2100412E007B4B9A /* amrFileCodec.mm in Sources */,
@@ -2091,6 +2138,7 @@
 				665C12F82100412E007B4B9A /* PSTGridLayoutSection.m in Sources */,
 				665C12CE2100412E007B4B9A /* MJRefreshBackStateFooter.m in Sources */,
 				6691A1172108516700C518F8 /* UIView+WebCacheOperation.m in Sources */,
+				66A293262109AFE100A2196C /* UITextView+Placeholder.m in Sources */,
 				665C12E22100412E007B4B9A /* EMCDDeviceManager+Media.m in Sources */,
 				6691A1112108516700C518F8 /* SDWebImageCompat.m in Sources */,
 				6691A10A2108516700C518F8 /* MKAnnotationView+WebCache.m in Sources */,
@@ -2104,6 +2152,7 @@
 				665C13292100412E007B4B9A /* EaseBubbleView+Video.m in Sources */,
 				665C12DF2100412E007B4B9A /* EMVoiceConverter.mm in Sources */,
 				665C12EB2100412E007B4B9A /* MWTapDetectingImageView.m in Sources */,
+				66A2932C2109B4E100A2196C /* JKAddphotoItem.m in Sources */,
 				665C13192100412E007B4B9A /* EaseMessageTimeCell.m in Sources */,
 				6691A1142108516700C518F8 /* SDWebImageDownloaderOperation.m in Sources */,
 				665C135C21004205007B4B9A /* ContactListViewController.m in Sources */,

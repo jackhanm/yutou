@@ -8,7 +8,7 @@
 
 #import "JKfind.h"
 #import "JKtableviewController.h"
-#import "JKChoosetitle.h"
+#import "JKchannel.h"
 #import "SDCycleScrollView.h"
 #import "JKPublishState.h"
 #import "JKSearch.h"
@@ -24,6 +24,7 @@
 
 @property (nonatomic, strong) UIScrollView *bottomScrollView;
 @property (nonatomic, strong) UIScrollView *segmentScrollView;
+@property (nonatomic, strong) UIView *segmentbackground;
 @property (nonatomic, strong) SDCycleScrollView *cycleScrollView;
 
 //存放控制器
@@ -79,8 +80,8 @@
    
     [self.view addSubview:self.headScrollview];
      [self.view addSubview:self.headtitle];
-    [self.view addSubview:self.segmentScrollView];
-    
+    [self.segmentbackground addSubview:self.segmentScrollView];
+    [self.view addSubview:self.segmentbackground];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
@@ -105,17 +106,17 @@
     JKLog(@"%f",tableViewoffsetY);
     if ( tableViewoffsetY>=0 && tableViewoffsetY<=364) {
         
-        self.segmentScrollView.frame = CGRectMake(0, 427-tableViewoffsetY, WIDGHT, 48);
+        self.segmentbackground.frame = CGRectMake(0, 427-tableViewoffsetY, WIDGHT, 48);
         self.headScrollview.frame = CGRectMake(0, 64-tableViewoffsetY, WIDGHT, 364);
         
     }else if( tableViewoffsetY < 0){
         
-        self.segmentScrollView.frame = CGRectMake(0, 427, WIDGHT, 48);
+        self.segmentbackground.frame = CGRectMake(0, 427, WIDGHT, 48);
         self.headScrollview.frame = CGRectMake(0, 64, WIDGHT, 364);
         
     }else if (tableViewoffsetY > 364){
         
-        self.segmentScrollView.frame = CGRectMake(0, 64, WIDGHT, 48);
+        self.segmentbackground.frame = CGRectMake(0, 64, WIDGHT, 48);
        self.headScrollview.frame = CGRectMake(0,  64-tableViewoffsetY, WIDGHT, 364);
     }
 }
@@ -169,7 +170,7 @@
     }];
 }
 
-#pragma mark 点击事件
+#pragma mark 标题点击事件
 -(void)changeSelectedItem:(UIButton *)currentButton
 {
     _previousButton.selected = NO;
@@ -214,8 +215,7 @@
     }];
     
     
-    JKChoosetitle *vc= [[JKChoosetitle alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
+    
 }
 #pragma mark 点击事件
 -(void)editAction{
@@ -224,6 +224,15 @@
     
 }
 -(void)searchAct{
+    
+}
+-(void)addhannel
+{
+    JKchannel *vc= [[JKchannel alloc]init];
+    [self presentViewController:vc animated:YES completion:^{
+        
+        
+    }];
     
 }
 
@@ -236,7 +245,7 @@
         _headtitle.backgroundColor = [UIColor whiteColor];
         img.image = kLGetImage(@"logo");
         [_headtitle addSubview:img];
-        UIImageView * img2 = [[UIImageView alloc]initWithFrame:CGRectMake(WIDGHT -50,65/heightreal , 20, 20)];
+        UIImageView * img2 = [[UIImageView alloc]initWithFrame:CGRectMake(WIDGHT -40,65/heightreal , 20, 20)];
         img2.image = kLGetImage(@"编辑图标");
         img2.userInteractionEnabled = YES;
         [_headtitle addSubview:img2];
@@ -309,7 +318,7 @@
 }
 -(UIScrollView *)segmentScrollView{
     if (!_segmentScrollView) {
-        _segmentScrollView =  [[UIScrollView alloc]initWithFrame:CGRectMake(0, 427, WIDGHT, 48)];
+        _segmentScrollView =  [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, WIDGHT-35, 48)];
        
         _segmentScrollView.showsHorizontalScrollIndicator = NO;
         _segmentScrollView.showsVerticalScrollIndicator = NO;
@@ -352,7 +361,22 @@
      return _segmentScrollView;
 }
 
-
+-(UIView *)segmentbackground
+{
+    if (!_segmentbackground) {
+        _segmentbackground =[[UIView alloc]initWithFrame:CGRectMake(0, 427, WIDGHT, 48)];
+//        _segmentbackground.backgroundColor = randomColor;
+        _segmentbackground.userInteractionEnabled =YES;
+        UIImageView *img = [[UIImageView alloc]init];
+        img.frame =CGRectMake(self.segmentScrollView.frame.size.width + self.segmentScrollView.frame.origin.x, 14, 16, 16);
+        img.image = kLGetImage(@"添加");
+        img.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(addhannel)];
+        [img addGestureRecognizer:tap];
+        [_segmentbackground addSubview:img];
+    }
+    return _segmentbackground;
+}
 
 
 

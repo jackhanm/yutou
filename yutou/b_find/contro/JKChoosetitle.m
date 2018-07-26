@@ -17,17 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = UIColorFromRGB(0xf8f8f8);
     UITapGestureRecognizer *tap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(bacj)];
     [self.view addGestureRecognizer:tap];
     // Do any additional setup after loading the view.
 }
--(void)bacj{
-    JKfind *vc= [[JKfind alloc]init];
-    NSMutableArray *Arr= [NSMutableArray arrayWithObjects:@"热门推荐1",@"我的关注",@"区块链",@"证券",@"添加", nil];
-    vc.categoryArr1 =Arr;
-    [self.navigationController popViewControllerAnimated:YES];
-}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

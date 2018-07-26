@@ -21,6 +21,7 @@ PODS:
   - Realm (3.7.4):
     - Realm/Headers (= 3.7.4)
   - Realm/Headers (3.7.4)
+  - TZImagePickerController (2.1.6)
   - VTMagic (1.2.4):
     - VTMagic/Core (= 1.2.4)
   - VTMagic/Core (1.2.4)
@@ -32,6 +33,7 @@ DEPENDENCIES:
   - Hyphenate
   - Masonry (~> 1.1.0)
   - Realm (~> 3.7.4)
+  - TZImagePickerController (~> 2.1.6)
   - VTMagic (~> 1.2.4)
 
 SPEC REPOS:
@@ -42,6 +44,7 @@ SPEC REPOS:
     - Hyphenate
     - Masonry
     - Realm
+    - TZImagePickerController
     - VTMagic
 
 SPEC CHECKSUMS:
@@ -51,8 +54,9 @@ SPEC CHECKSUMS:
   Hyphenate: 25e6dc90d5171a5bf77a92fa11a7638db85575d0
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   Realm: a469bb59e33f9926102ccaea4349822c53b9117e
+  TZImagePickerController: bc25e933c9d970a622d052f0d4de16202bbcd863
   VTMagic: b49e5f456dbcbfd9a3588ba92417233a105bc193
 
-PODFILE CHECKSUM: 5e25e6b96b4e6ecc801c6f8d370fd38262c94c0b
+PODFILE CHECKSUM: 48975be1874be1c09a9aaee49921382d11ad04f5
 
 COCOAPODS: 1.5.3
