@@ -10,4 +10,13 @@
 @class JKRecomandModel;
 @interface JKRecomandcell : UITableViewCell
 @property (nonatomic, strong) JKRecomandModel *RecomandModel;
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UILabel *taglabel;
+@property (nonatomic, strong) UILabel *authorLabel;
+@property (nonatomic, strong) UILabel *readnumLabel;
+@property (nonatomic, strong) UILabel *timeLabel;
+@property (nonatomic, strong) UIView  *likebg;
+@property (nonatomic, strong) UIImageView  *likeimg;
+@property (nonatomic, strong) UILabel  *liketext;
+@property (nonatomic, strong) UIImageView  *img;
 @end

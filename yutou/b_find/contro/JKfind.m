@@ -7,16 +7,18 @@
 //
 
 #import "JKfind.h"
-#import "JKtableviewController.h"
+#import "JKRecomand.h"
 #import "JKchannel.h"
-#import "SDCycleScrollView.h"
+#import "TYCyclePagerView.h"
+#import "TYPageControl.h"
 #import "JKPublishState.h"
 #import "JKSearch.h"
-
+#import "JKBannerItem.h"
+#import "JKContentdetail.h"
 #define PADDING 15.0
 
 
-@interface JKfind ()<UIScrollViewDelegate>
+@interface JKfind ()<UIScrollViewDelegate,TYCyclePagerViewDataSource, TYCyclePagerViewDelegate,JKRecomanddelegate>
 
 @property (nonatomic, strong) UIView *headtitle;
 @property (nonatomic, strong) UIView *headScrollview;
@@ -25,8 +27,9 @@
 @property (nonatomic, strong) UIScrollView *bottomScrollView;
 @property (nonatomic, strong) UIScrollView *segmentScrollView;
 @property (nonatomic, strong) UIView *segmentbackground;
-@property (nonatomic, strong) SDCycleScrollView *cycleScrollView;
-
+@property (nonatomic, strong) TYCyclePagerView *pagerView;
+@property (nonatomic, strong) TYPageControl *pageControl;
+@property (nonatomic, strong) NSArray *Bannerdatas;
 //存放控制器
 @property(nonatomic,strong)NSMutableArray *controlleres;
 //存放TableView
@@ -67,7 +70,20 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     [self createview];
+    [self loaddata];
     // Do any additional setup after loading the view.
+}
+- (void)loaddata {
+   
+    NSMutableArray *imageMutableArray = [NSMutableArray array];
+    for (int i = 1; i<9; i++) {
+        NSString *imageName = [NSString stringWithFormat:@"cycle_%02d.jpg",i];
+        [imageMutableArray addObject:imageName];
+    }
+    _Bannerdatas = [imageMutableArray copy];
+    _pageControl.numberOfPages = _Bannerdatas.count;
+    [_pagerView reloadData];
+    //[_pagerView scrollToItemAtIndex:3 animate:YES];
 }
 -(void)createview
 {
@@ -281,14 +297,38 @@
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(searchAct)];
         [img addGestureRecognizer:tap];
         
-        NSMutableArray *imageMutableArray = [NSMutableArray array];
-        for (int i = 1; i<9; i++) {
-            NSString *imageName = [NSString stringWithFormat:@"cycle_%02d.jpg",i];
-            [imageMutableArray addObject:imageName];
-        }
         
-        _cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, img.frame.size.height+img.frame.origin.y + 63/heightreal, WIDGHT, 330/heightreal) imageNamesGroup:imageMutableArray];
-        [_headScrollview addSubview:_cycleScrollView];
+        
+       
+        
+        TYCyclePagerView *pagerView = [[TYCyclePagerView alloc]init];
+        pagerView.frame =CGRectMake(0, img.frame.size.height+img.frame.origin.y + 63/heightreal, WIDGHT, 330/heightreal);
+       
+        pagerView.isInfiniteLoop = YES;
+        pagerView.autoScrollInterval = 3.0;
+        pagerView.dataSource = self;
+        pagerView.delegate = self;
+        // registerClass or registerNib
+        [pagerView registerClass:[JKBannerItem class] forCellWithReuseIdentifier:@"cellId"];
+        [_headScrollview addSubview:pagerView];
+        _pagerView = pagerView;
+        TYPageControl *pageControl = [[TYPageControl alloc]init];
+        pageControl.frame = CGRectMake(0, CGRectGetHeight(_pagerView.frame) - 26, CGRectGetWidth(_pagerView.frame), 26);
+        //pageControl.numberOfPages = _datas.count;
+        pageControl.currentPageIndicatorSize = CGSizeMake(6, 6);
+        pageControl.pageIndicatorSize = CGSizeMake(12, 6);
+        pageControl.currentPageIndicatorTintColor = [UIColor redColor];
+        pageControl.pageIndicatorTintColor = [UIColor grayColor];
+        //    pageControl.pageIndicatorImage = [UIImage imageNamed:@"Dot"];
+        //    pageControl.currentPageIndicatorImage = [UIImage imageNamed:@"DotSelected"];
+        //    pageControl.contentInset = UIEdgeInsetsMake(0, 20, 0, 20);
+        //    pageControl.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+        //    pageControl.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        //    [pageControl addTarget:self action:@selector(pageControlValueChangeAction:) forControlEvents:UIControlEventValueChanged];
+        [_pagerView addSubview:pageControl];
+        _pageControl = pageControl;
+        
+        
     }
     return _headScrollview;
 }
@@ -301,7 +341,8 @@
         _bottomScrollView.backgroundColor = randomColor;
         _bottomScrollView.pagingEnabled =YES;
         for (int i =0; i < _categoryArr.count; i++) {
-            JKtableviewController *tableviewvc = [[JKtableviewController alloc]init];
+            JKRecomand *tableviewvc = [[JKRecomand alloc]init];
+            tableviewvc.delegate = self;
             tableviewvc.view.frame = CGRectMake(WIDGHT * i, 0, WIDGHT, HEIGHT);
             tableviewvc.view.backgroundColor = randomColor;
             [self.bottomScrollView addSubview:tableviewvc.view];
@@ -328,7 +369,7 @@
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
             [btn setTitle:_categoryArr[i] forState:UIControlStateNormal];
             [btn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-            [btn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+            [btn setTitleColor:UIColorFromRGB(themeColor) forState:UIControlStateSelected];
             btn.titleLabel.font = [UIFont systemFontOfSize:16];
             CGSize size = [UIButton sizeOfLabelWithCustomMaxWidth:WIDGHT systemFontSize:16.0 andFilledTextString:_categoryArr[i]];
             
@@ -378,9 +419,42 @@
     return _segmentbackground;
 }
 
+#pragma mark - TYCyclePagerViewDataSource
 
+- (NSInteger)numberOfItemsInPagerView:(TYCyclePagerView *)pageView {
+    return _Bannerdatas.count;
+}
 
+- (UICollectionViewCell *)pagerView:(TYCyclePagerView *)pagerView cellForItemAtIndex:(NSInteger)index {
+    JKBannerItem *cell = [pagerView dequeueReusableCellWithReuseIdentifier:@"cellId" forIndex:index];
+    cell.backgroundColor = randomColor;
+    cell.layer.cornerRadius =5;
+    cell.layer.masksToBounds =YES;
+    cell.img.image = kLGetImage(_Bannerdatas[index]);
+    return cell;
+}
 
+- (TYCyclePagerViewLayout *)layoutForPagerView:(TYCyclePagerView *)pageView {
+    TYCyclePagerViewLayout *layout = [[TYCyclePagerViewLayout alloc]init];
+    layout.itemSize = CGSizeMake(580/widthreal, 330/heightreal);
+    layout.itemSpacing = 15;
+    layout.layoutType=TYCyclePagerTransformLayoutLinear;
+    //layout.minimumAlpha = 0.3;
+    return layout;
+}
+
+- (void)pagerView:(TYCyclePagerView *)pageView didScrollFromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex {
+    _pageControl.currentPage = toIndex;
+    //[_pageControl setCurrentPage:newIndex animate:YES];
+    NSLog(@"%ld ->  %ld",fromIndex,toIndex);
+}
+
+#pragma mark table点击事件
+-(void)tableviewdidSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+{
+    JKContentdetail *vc = [[JKContentdetail alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 
 

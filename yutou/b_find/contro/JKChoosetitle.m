@@ -8,7 +8,7 @@
 
 #import "JKChoosetitle.h"
 #import "JKfind.h"
-#import "JKtableviewController.h"
+
 @interface JKChoosetitle ()
 
 @end

@@ -151,7 +151,6 @@
 		667C9DF320FC34A50003E2C2 /* JKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 667C9DF220FC34A50003E2C2 /* JKViewController.m */; };
 		667C9DF620FC34CA0003E2C2 /* JKmine.m in Sources */ = {isa = PBXBuildFile; fileRef = 667C9DF520FC34CA0003E2C2 /* JKmine.m */; };
 		667C9DF920FC34E80003E2C2 /* JKfind.m in Sources */ = {isa = PBXBuildFile; fileRef = 667C9DF820FC34E80003E2C2 /* JKfind.m */; };
-		668DB7D12107119D00EB96F9 /* JKtableviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 668DB7D02107119D00EB96F9 /* JKtableviewController.m */; };
 		668DB7D42107121600EB96F9 /* JKRecomandcell.m in Sources */ = {isa = PBXBuildFile; fileRef = 668DB7D32107121600EB96F9 /* JKRecomandcell.m */; };
 		668DB7D72107159E00EB96F9 /* JKRecomandModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 668DB7D62107159E00EB96F9 /* JKRecomandModel.m */; };
 		6691A0D32108067000C518F8 /* UIButton+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = 6691A0D22108067000C518F8 /* UIButton+Size.m */; };
@@ -180,13 +179,6 @@
 		6691A1162108516700C518F8 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6691A1002108516700C518F8 /* UIImageView+WebCache.m */; };
 		6691A1172108516700C518F8 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6691A1032108516700C518F8 /* UIView+WebCacheOperation.m */; };
 		6691A1182108516700C518F8 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6691A1072108516700C518F8 /* UIButton+WebCache.m */; };
-		6691A1292108528200C518F8 /* SDCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6691A11D2108528200C518F8 /* SDCycleScrollView.m */; };
-		6691A12A2108528200C518F8 /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6691A11E2108528200C518F8 /* UIView+SDExtension.m */; };
-		6691A12B2108528200C518F8 /* SDCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6691A11F2108528200C518F8 /* SDCollectionViewCell.m */; };
-		6691A12C2108528200C518F8 /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6691A1222108528200C518F8 /* TADotView.m */; };
-		6691A12D2108528200C518F8 /* TAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6691A1232108528200C518F8 /* TAPageControl.m */; };
-		6691A12E2108528200C518F8 /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6691A1242108528200C518F8 /* TAAnimatedDotView.m */; };
-		6691A12F2108528200C518F8 /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6691A1252108528200C518F8 /* TAAbstractDotView.m */; };
 		6691A13221086EAF00C518F8 /* JKPublishState.m in Sources */ = {isa = PBXBuildFile; fileRef = 6691A13121086EAF00C518F8 /* JKPublishState.m */; };
 		6691A135210870E500C518F8 /* JKSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 6691A134210870E500C518F8 /* JKSearch.m */; };
 		6691A1382108714400C518F8 /* JKchannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6691A1372108714400C518F8 /* JKchannel.m */; };
@@ -206,6 +198,12 @@
 		66A293262109AFE100A2196C /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A293252109AFE100A2196C /* UITextView+Placeholder.m */; };
 		66A293292109B42C00A2196C /* LxGridViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A293282109B42C00A2196C /* LxGridViewFlowLayout.m */; };
 		66A2932C2109B4E100A2196C /* JKAddphotoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A2932B2109B4E100A2196C /* JKAddphotoItem.m */; };
+		66DA010A210AA17F00E0BC18 /* TYPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 66DA0106210AA17E00E0BC18 /* TYPageControl.m */; };
+		66DA010B210AA17F00E0BC18 /* TYCyclePagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66DA0107210AA17E00E0BC18 /* TYCyclePagerView.m */; };
+		66DA010C210AA17F00E0BC18 /* TYCyclePagerTransformLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 66DA0108210AA17E00E0BC18 /* TYCyclePagerTransformLayout.m */; };
+		66DA010F210AA38F00E0BC18 /* JKBannerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 66DA010E210AA38F00E0BC18 /* JKBannerItem.m */; };
+		66DA0112210AA93B00E0BC18 /* JKRecomand.m in Sources */ = {isa = PBXBuildFile; fileRef = 66DA0111210AA93B00E0BC18 /* JKRecomand.m */; };
+		66DA0115210AC51B00E0BC18 /* JKContentdetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 66DA0114210AC51B00E0BC18 /* JKContentdetail.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -531,8 +529,6 @@
 		667C9DF520FC34CA0003E2C2 /* JKmine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKmine.m; sourceTree = "<group>"; };
 		667C9DF720FC34E80003E2C2 /* JKfind.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKfind.h; sourceTree = "<group>"; };
 		667C9DF820FC34E80003E2C2 /* JKfind.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKfind.m; sourceTree = "<group>"; };
-		668DB7CF2107119D00EB96F9 /* JKtableviewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKtableviewController.h; sourceTree = "<group>"; };
-		668DB7D02107119D00EB96F9 /* JKtableviewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKtableviewController.m; sourceTree = "<group>"; };
 		668DB7D22107121600EB96F9 /* JKRecomandcell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRecomandcell.h; sourceTree = "<group>"; };
 		668DB7D32107121600EB96F9 /* JKRecomandcell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRecomandcell.m; sourceTree = "<group>"; };
 		668DB7D52107159E00EB96F9 /* JKRecomandModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRecomandModel.h; sourceTree = "<group>"; };
@@ -582,20 +578,6 @@
 		6691A1062108516700C518F8 /* UIImage+MultiFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MultiFormat.h"; sourceTree = "<group>"; };
 		6691A1072108516700C518F8 /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
 		6691A1082108516700C518F8 /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
-		6691A11A2108528200C518F8 /* UIView+SDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDExtension.h"; sourceTree = "<group>"; };
-		6691A11B2108528200C518F8 /* SDCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCycleScrollView.h; sourceTree = "<group>"; };
-		6691A11C2108528200C518F8 /* SDCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCollectionViewCell.h; sourceTree = "<group>"; };
-		6691A11D2108528200C518F8 /* SDCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCycleScrollView.m; sourceTree = "<group>"; };
-		6691A11E2108528200C518F8 /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
-		6691A11F2108528200C518F8 /* SDCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCollectionViewCell.m; sourceTree = "<group>"; };
-		6691A1212108528200C518F8 /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
-		6691A1222108528200C518F8 /* TADotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TADotView.m; sourceTree = "<group>"; };
-		6691A1232108528200C518F8 /* TAPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAPageControl.m; sourceTree = "<group>"; };
-		6691A1242108528200C518F8 /* TAAnimatedDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAnimatedDotView.m; sourceTree = "<group>"; };
-		6691A1252108528200C518F8 /* TAAbstractDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAbstractDotView.m; sourceTree = "<group>"; };
-		6691A1262108528200C518F8 /* TADotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TADotView.h; sourceTree = "<group>"; };
-		6691A1272108528200C518F8 /* TAAnimatedDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAnimatedDotView.h; sourceTree = "<group>"; };
-		6691A1282108528200C518F8 /* TAPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAPageControl.h; sourceTree = "<group>"; };
 		6691A13021086EAF00C518F8 /* JKPublishState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKPublishState.h; sourceTree = "<group>"; };
 		6691A13121086EAF00C518F8 /* JKPublishState.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKPublishState.m; sourceTree = "<group>"; };
 		6691A133210870E500C518F8 /* JKSearch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKSearch.h; sourceTree = "<group>"; };
@@ -634,6 +616,18 @@
 		66A293282109B42C00A2196C /* LxGridViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LxGridViewFlowLayout.m; sourceTree = "<group>"; };
 		66A2932A2109B4E100A2196C /* JKAddphotoItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKAddphotoItem.h; sourceTree = "<group>"; };
 		66A2932B2109B4E100A2196C /* JKAddphotoItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKAddphotoItem.m; sourceTree = "<group>"; };
+		66DA0104210AA17E00E0BC18 /* TYCyclePagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYCyclePagerView.h; sourceTree = "<group>"; };
+		66DA0105210AA17E00E0BC18 /* TYCyclePagerTransformLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYCyclePagerTransformLayout.h; sourceTree = "<group>"; };
+		66DA0106210AA17E00E0BC18 /* TYPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYPageControl.m; sourceTree = "<group>"; };
+		66DA0107210AA17E00E0BC18 /* TYCyclePagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYCyclePagerView.m; sourceTree = "<group>"; };
+		66DA0108210AA17E00E0BC18 /* TYCyclePagerTransformLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYCyclePagerTransformLayout.m; sourceTree = "<group>"; };
+		66DA0109210AA17E00E0BC18 /* TYPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYPageControl.h; sourceTree = "<group>"; };
+		66DA010D210AA38F00E0BC18 /* JKBannerItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKBannerItem.h; sourceTree = "<group>"; };
+		66DA010E210AA38F00E0BC18 /* JKBannerItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKBannerItem.m; sourceTree = "<group>"; };
+		66DA0110210AA93B00E0BC18 /* JKRecomand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRecomand.h; sourceTree = "<group>"; };
+		66DA0111210AA93B00E0BC18 /* JKRecomand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRecomand.m; sourceTree = "<group>"; };
+		66DA0113210AC51B00E0BC18 /* JKContentdetail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKContentdetail.h; sourceTree = "<group>"; };
+		66DA0114210AC51B00E0BC18 /* JKContentdetail.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKContentdetail.m; sourceTree = "<group>"; };
 		DBD6723F85C135107F20FE10 /* libPods-yutou.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-yutou.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1377,9 +1371,9 @@
 		666851D42100312E00A19249 /* other */ = {
 			isa = PBXGroup;
 			children = (
+				66DA0103210AA17E00E0BC18 /* lunbo */,
 				66A293272109B42500A2196C /* LxGridViewFlowLayout.h */,
 				66A293282109B42C00A2196C /* LxGridViewFlowLayout.m */,
-				6691A1192108528200C518F8 /* SDCycleScrollView */,
 				6691A0D921084EAB00C518F8 /* cycle_01.jpg */,
 				6691A0DC21084EAD00C518F8 /* cycle_02.jpg */,
 				6691A0D821084EAA00C518F8 /* cycle_03.jpg */,
@@ -1403,6 +1397,8 @@
 				66A2932221095DD000A2196C /* JKChannelItemhead.m */,
 				66A2932A2109B4E100A2196C /* JKAddphotoItem.h */,
 				66A2932B2109B4E100A2196C /* JKAddphotoItem.m */,
+				66DA010D210AA38F00E0BC18 /* JKBannerItem.h */,
+				66DA010E210AA38F00E0BC18 /* JKBannerItem.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1412,8 +1408,8 @@
 			children = (
 				667C9DF720FC34E80003E2C2 /* JKfind.h */,
 				667C9DF820FC34E80003E2C2 /* JKfind.m */,
-				668DB7CF2107119D00EB96F9 /* JKtableviewController.h */,
-				668DB7D02107119D00EB96F9 /* JKtableviewController.m */,
+				66DA0110210AA93B00E0BC18 /* JKRecomand.h */,
+				66DA0111210AA93B00E0BC18 /* JKRecomand.m */,
 				6691A0D42108117700C518F8 /* JKChoosetitle.h */,
 				6691A0D52108117700C518F8 /* JKChoosetitle.m */,
 				6691A13021086EAF00C518F8 /* JKPublishState.h */,
@@ -1426,6 +1422,8 @@
 				6691A13A2108715B00C518F8 /* JKnotices.m */,
 				6691A13C2108718100C518F8 /* JKAirticesDetail.h */,
 				6691A13D2108718100C518F8 /* JKAirticesDetail.m */,
+				66DA0113210AC51B00E0BC18 /* JKContentdetail.h */,
+				66DA0114210AC51B00E0BC18 /* JKContentdetail.m */,
 			);
 			path = contro;
 			sourceTree = "<group>";
@@ -1689,35 +1687,6 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
-		6691A1192108528200C518F8 /* SDCycleScrollView */ = {
-			isa = PBXGroup;
-			children = (
-				6691A11A2108528200C518F8 /* UIView+SDExtension.h */,
-				6691A11B2108528200C518F8 /* SDCycleScrollView.h */,
-				6691A11C2108528200C518F8 /* SDCollectionViewCell.h */,
-				6691A11D2108528200C518F8 /* SDCycleScrollView.m */,
-				6691A11E2108528200C518F8 /* UIView+SDExtension.m */,
-				6691A11F2108528200C518F8 /* SDCollectionViewCell.m */,
-				6691A1202108528200C518F8 /* PageControl */,
-			);
-			path = SDCycleScrollView;
-			sourceTree = "<group>";
-		};
-		6691A1202108528200C518F8 /* PageControl */ = {
-			isa = PBXGroup;
-			children = (
-				6691A1212108528200C518F8 /* TAAbstractDotView.h */,
-				6691A1222108528200C518F8 /* TADotView.m */,
-				6691A1232108528200C518F8 /* TAPageControl.m */,
-				6691A1242108528200C518F8 /* TAAnimatedDotView.m */,
-				6691A1252108528200C518F8 /* TAAbstractDotView.m */,
-				6691A1262108528200C518F8 /* TADotView.h */,
-				6691A1272108528200C518F8 /* TAAnimatedDotView.h */,
-				6691A1282108528200C518F8 /* TAPageControl.h */,
-			);
-			path = PageControl;
-			sourceTree = "<group>";
-		};
 		6695A3FF20EDF20000ACC7A2 = {
 			isa = PBXGroup;
 			children = (
@@ -1789,6 +1758,19 @@
 				666851DE210031AF00A19249 /* view */,
 			);
 			path = e_login;
+			sourceTree = "<group>";
+		};
+		66DA0103210AA17E00E0BC18 /* lunbo */ = {
+			isa = PBXGroup;
+			children = (
+				66DA0104210AA17E00E0BC18 /* TYCyclePagerView.h */,
+				66DA0105210AA17E00E0BC18 /* TYCyclePagerTransformLayout.h */,
+				66DA0106210AA17E00E0BC18 /* TYPageControl.m */,
+				66DA0107210AA17E00E0BC18 /* TYCyclePagerView.m */,
+				66DA0108210AA17E00E0BC18 /* TYCyclePagerTransformLayout.m */,
+				66DA0109210AA17E00E0BC18 /* TYPageControl.h */,
+			);
+			path = lunbo;
 			sourceTree = "<group>";
 		};
 		7EA75FEB39BD5B529372AA1E /* Pods */ = {
@@ -2037,6 +2019,7 @@
 				665C12EC2100412E007B4B9A /* MWPhoto.m in Sources */,
 				665C135821004205007B4B9A /* XHMessageTextView.m in Sources */,
 				665C12FA2100412E007B4B9A /* PSTCollectionView.m in Sources */,
+				66DA010F210AA38F00E0BC18 /* JKBannerItem.m in Sources */,
 				665C12CF2100412E007B4B9A /* MJRefreshBackNormalFooter.m in Sources */,
 				665C13232100412E007B4B9A /* EaseRecordView.m in Sources */,
 				665C12E62100412E007B4B9A /* EMCDDeviceManagerBase.m in Sources */,
@@ -2048,6 +2031,7 @@
 				665C13112100412E007B4B9A /* EaseLocationViewController.m in Sources */,
 				665C12BC2100412E007B4B9A /* NSDateFormatter+Category.m in Sources */,
 				665C12C42100412E007B4B9A /* EaseEmotionManager.m in Sources */,
+				66DA010C210AA17F00E0BC18 /* TYCyclePagerTransformLayout.m in Sources */,
 				665C12E12100412E007B4B9A /* EMCDDeviceManager+ProximitySensor.m in Sources */,
 				667C9DF620FC34CA0003E2C2 /* JKmine.m in Sources */,
 				6691A10E2108516700C518F8 /* SDWebImageDownloader.m in Sources */,
@@ -2058,9 +2042,9 @@
 				665C135B21004205007B4B9A /* EMTextView.m in Sources */,
 				6695A45820EDF85300ACC7A2 /* JKlogin.m in Sources */,
 				66A293202109589300A2196C /* JKChannelitem.m in Sources */,
+				66DA010B210AA17F00E0BC18 /* TYCyclePagerView.m in Sources */,
 				6691A1092108516700C518F8 /* UIImage+WebP.m in Sources */,
 				6655BE032100642600FCCB4E /* UILabel+setLabel.m in Sources */,
-				6691A12C2108528200C518F8 /* TADotView.m in Sources */,
 				665C13212100412E007B4B9A /* EaseTextView.m in Sources */,
 				665C13262100412E007B4B9A /* EaseBubbleView+Location.m in Sources */,
 				665C12DD2100412E007B4B9A /* wav.mm in Sources */,
@@ -2070,6 +2054,7 @@
 				665C12CD2100412E007B4B9A /* MJRefreshBackGifFooter.m in Sources */,
 				6691A1122108516700C518F8 /* SDWebImagePrefetcher.m in Sources */,
 				665C12C32100412E007B4B9A /* EaseEmojiEmoticons.m in Sources */,
+				66DA0112210AA93B00E0BC18 /* JKRecomand.m in Sources */,
 				6695A41B20EDF20300ACC7A2 /* main.m in Sources */,
 				6655BE3221006B1700FCCB4E /* DeviceDataLibrery.m in Sources */,
 				66A293292109B42C00A2196C /* LxGridViewFlowLayout.m in Sources */,
@@ -2081,8 +2066,9 @@
 				665C13242100412E007B4B9A /* EaseChatToolbarItem.m in Sources */,
 				665C13182100412E007B4B9A /* EaseConversationCell.m in Sources */,
 				665C13282100412E007B4B9A /* EaseBubbleView.m in Sources */,
+				66DA010A210AA17F00E0BC18 /* TYPageControl.m in Sources */,
+				66DA0115210AC51B00E0BC18 /* JKContentdetail.m in Sources */,
 				665C12EF2100412E007B4B9A /* MWGridCell.m in Sources */,
-				6691A12D2108528200C518F8 /* TAPageControl.m in Sources */,
 				665C12EA2100412E007B4B9A /* UIImage+MWPhotoBrowser.m in Sources */,
 				665C12F22100412E007B4B9A /* PSTCollectionViewFlowLayout.m in Sources */,
 				665C12CC2100412E007B4B9A /* UIView+MJExtension.m in Sources */,
@@ -2093,27 +2079,22 @@
 				665C12DE2100412E007B4B9A /* amrFileCodec.mm in Sources */,
 				6655BE09210064F800FCCB4E /* UIImage+Category.m in Sources */,
 				665C135A21004205007B4B9A /* EMSearchBar.m in Sources */,
-				6691A12E2108528200C518F8 /* TAAnimatedDotView.m in Sources */,
 				667C9DE520FC30CA0003E2C2 /* JKbaseModel.m in Sources */,
 				665C12CB2100412E007B4B9A /* UIScrollView+MJExtension.m in Sources */,
 				6695A40D20EDF20100ACC7A2 /* AppDelegate.m in Sources */,
 				665C12DA2100412E007B4B9A /* MJRefreshComponent.m in Sources */,
 				6691A1132108516700C518F8 /* SDImageCache.m in Sources */,
 				665C12BF2100412E007B4B9A /* EaseConvertToCommonEmoticonsHelper.m in Sources */,
-				6691A1292108528200C518F8 /* SDCycleScrollView.m in Sources */,
 				665C12E02100412E007B4B9A /* EMCDDeviceManager+Remind.m in Sources */,
 				6691A1152108516700C518F8 /* NSData+ImageContentType.m in Sources */,
-				668DB7D12107119D00EB96F9 /* JKtableviewController.m in Sources */,
 				665C12F02100412E007B4B9A /* DACircularProgressView.m in Sources */,
 				667C9DF920FC34E80003E2C2 /* JKfind.m in Sources */,
 				665C13102100412E007B4B9A /* MBProgressHUD+Add.m in Sources */,
 				665C12BD2100412E007B4B9A /* FixFopen.c in Sources */,
-				6691A12B2108528200C518F8 /* SDCollectionViewCell.m in Sources */,
 				665C12FC2100412E007B4B9A /* PSTCollectionViewLayout.m in Sources */,
 				665C12B92100412E007B4B9A /* NSDate+Category.m in Sources */,
 				665C12D22100412E007B4B9A /* MJRefreshAutoNormalFooter.m in Sources */,
 				668DB7D72107159E00EB96F9 /* JKRecomandModel.m in Sources */,
-				6691A12A2108528200C518F8 /* UIView+SDExtension.m in Sources */,
 				665C131B2100412E007B4B9A /* EaseMessageCell.m in Sources */,
 				665C13122100412E007B4B9A /* EaseConversationListViewController.m in Sources */,
 				6655BE232100668500FCCB4E /* NSMutableArray+Category.m in Sources */,
@@ -2171,7 +2152,6 @@
 				6691A135210870E500C518F8 /* JKSearch.m in Sources */,
 				665C12D72100412E007B4B9A /* MJRefreshHeader.m in Sources */,
 				665C12D02100412E007B4B9A /* MJRefreshAutoStateFooter.m in Sources */,
-				6691A12F2108528200C518F8 /* TAAbstractDotView.m in Sources */,
 				665C12BE2100412E007B4B9A /* EaseMessageReadManager.m in Sources */,
 				6655BE122100656800FCCB4E /* NSString+Predicate.m in Sources */,
 				665C12BA2100412E007B4B9A /* NSString+Valid.m in Sources */,
